@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Expense Tracker Using HTML,CSS & Javascript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>Expense Tracker</h1>
+    <label id="name">Expense Name</label>
+    <input type="text" id="expenseName" placeholder="Enter your Expense Name">
+    <label id="amount">ExpenseAmount</label>
+    <input type="text" id="expenseAmount" placeholder="Enter your Expense Amount">
+    <select id="Select-Expense">
+      <option value="">Choose Your Expense</option>
+      <option value="1">Food</option>
+      <option value="2">Transport</option>
+      <option value="3">Entertainment</option>
+    </select>
+    <button type="button" id="Add-Expense">Add Expense</button>
+    <table id="Display-Expense">
+      <tr>
+        <th scope="col">Expense</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Category</th>
+        <th scope="col">Action</th>
+      </tr>
+    </table>
+    <section id="Total-Expense">
+      Total:0
+    </section>
+    <button class="delete-btn" id="Delete-Btn" type="button">Delete Expense</button>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

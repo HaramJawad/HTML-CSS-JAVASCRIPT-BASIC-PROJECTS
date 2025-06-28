@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GUESS A NUMBER</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .message { margin-top: 10px; font-size: 20px; }
+    .correct { color: green; }
+    .wrong { color: red; }
+  </style>
+</head>
+<body>
+  <h1>Guess the Number Game</h1>
+  <p>Enter a number between 1 and 100 to guess:</p>
+  <input type="number" id="userInput" placeholder="Your guess" min="1" max="100">
+  <button id="submitBtn">Submit</button>
+
+  <div class="message" id="message"></div>
+<script>
+function randomnumber() {
+      let rand = 1 + Math.random() * 100;
+      return Math.floor(rand);
+    }
+
+    const rand = randomnumber();
+    const messageDiv = document.getElementById('message');
+    const inputField = document.getElementById('userInput');
+    const submitButton = document.getElementById('submitBtn');
+    
+    submitButton.addEventListener('click', function() {
+      const userInput = parseInt(inputField.value, 10);
+
+      if (isNaN(userInput) || userInput < 1 || userInput > 100) {
+        messageDiv.textContent = "Please enter a valid number between 1 and 100!";
+        messageDiv.className = "message wrong";
+      } else if (userInput > rand) {
+        messageDiv.textContent = "The number is greater than your guess. Try again!";
+        messageDiv.className = "message wrong";
+      } else if (userInput < rand) {
+        messageDiv.textContent = "The number is lesser than your guess. Try again!";
+        messageDiv.className = "message wrong";
+      } else {
+        messageDiv.textContent = "You guessed it correctly!";
+        messageDiv.className = "message correct";
+      }
+    });
+</script>
+</body>
+</html>

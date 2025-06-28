@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Snake Water Gun Game</title>
+</head>
+<body>
+  <h1>A Snake Water Gun Game</h1>
+  <button id="Snakebtn">S</button>
+  <button id="Waterbtn">W</button>
+  <button id="Gunbtn">G</button>
+  <div class="result-display" id="result-display"></div>
+  <script>
+function random()
+{
+  const choices=["S","W","G"]
+  const computerChoice=choices[Math.floor(Math.random()*3)]
+  return computerChoice;
+}
+let Snakebtn = document.getElementById('Snakebtn');
+let Waterbtn = document.getElementById('Waterbtn');
+let Gunbtn = document.getElementById('Gunbtn');
+let resultDisplay = document.getElementById('result-display');
+Snakebtn.addEventListener('click',function(){playGame('S');});
+Waterbtn.addEventListener('click',function(){playGame('W');});
+Gunbtn.addEventListener('click',function(){playGame('G');});
+function playGame(userChoice)
+{
+  const computerChoice=random();
+  if(userChoice===computerChoice)
+{
+  resultDisplay.textContent="Its a draw";
+}
+else if((userChoice==="S" && computerChoice==="W")||(userChoice==="W" && computerChoice==="G")||(userChoice==="G" && computerChoice==="S"))
+{
+  resultDisplay.textContent="You win!";
+}
+else 
+{
+  resultDisplay.textContent="Computer Wins!";
+}
+}
+ </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Password Generator</title>
+</head>
+
+<body>
+  <input type="text" id="inputfield" placeholder="Generated Password" readonly>
+
+  <button id="Btn">Generate Password</button>
+</body>
+<script>
+  let inputfield = document.getElementById("inputfield");
+  let button = document.getElementById("Btn");
+  button.addEventListener("click", function () {
+    let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    let lowercase = "abcdefghijklmnopqrstuvwxyz";
+    let numbers = "0123456789";
+    let symbols = "!@#$%^&*";
+    function getrandomcharacter(category) {
+      let randIndex = Math.floor(Math.random() * category.length);
+      return category[randIndex];
+    }
+    let passwordarray = [
+      (getrandomcharacter(uppercase)),
+      (getrandomcharacter(uppercase)),
+      (getrandomcharacter(lowercase)),
+      (getrandomcharacter(lowercase)),
+      (getrandomcharacter(numbers)),
+      (getrandomcharacter(numbers)),
+      (getrandomcharacter(symbols)),
+      (getrandomcharacter(symbols)),
+    ];
+    let allCharacters = uppercase + lowercase + numbers + symbols;
+    passwordarray.push(getrandomcharacter(allCharacters));
+    for (let i = passwordarray.length - 1; i > 0; i--) {
+  let j = Math.floor(Math.random() * (i + 1));
+  [passwordarray[i], passwordarray[j]] = [passwordarray[j], passwordarray[i]];
+}
+let finalPassword = passwordarray.join("");
+inputfield.value = finalPassword;
+  })
+</script>
+
+</html>
