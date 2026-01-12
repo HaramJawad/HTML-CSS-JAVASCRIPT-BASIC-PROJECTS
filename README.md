@@ -1,5 +1,5 @@
 # 📗 HTML, CSS & JavaScript Practice Projects
-This repository contains small frontend projects I built while learning **HTML**, **CSS**, and **JavaScript**.
+This repository contains small & medium level frontend projects I built while learning **HTML**, **CSS**, and **JavaScript**.
 Each folder is a separate project focused on practicing basic concepts like DOM manipulation, events, styling, layout, and interactivity.
 
 ---
